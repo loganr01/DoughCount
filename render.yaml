@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: dough-batcher
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: python dough_web_app.py
