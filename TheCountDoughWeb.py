@@ -15,19 +15,30 @@ BATCH_SIZE = 1216
 
 HTML_TEMPLATE = """
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marco's Dough Batch Calculator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    function toggleTheme() {
+      var html = document.documentElement;
+      if (html.getAttribute('data-bs-theme') === 'dark') {
+        html.setAttribute('data-bs-theme', 'light');
+      } else {
+        html.setAttribute('data-bs-theme', 'dark');
+      }
+    }
+  </script>
 </head>
-<body class="bg-light">
+<body class="bg-body-secondary">
 
 <div class="container mt-5">
   <div class="text-center mb-4">
     <h1 class="display-5">Marco's Dough Batch Calculator</h1>
     <p class="lead">Enter the number of trays needed for each type.</p>
+    <button class="btn btn-secondary" onclick="toggleTheme()">Toggle Dark Mode</button>
   </div>
 
   <form method="post" class="card p-4 shadow-sm">
