@@ -15,38 +15,27 @@ BATCH_SIZE = 1216
 
 HTML_TEMPLATE = """
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marco's Dough Batch Calculator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script>
-    function toggleTheme() {
-      var html = document.documentElement;
-      if (html.getAttribute('data-bs-theme') === 'dark') {
-        html.setAttribute('data-bs-theme', 'light');
-      } else {
-        html.setAttribute('data-bs-theme', 'dark');
-      }
-    }
-  </script>
 </head>
-<body class="bg-body-secondary">
+<body class="bg-dark text-light">
 
 <div class="container mt-5">
   <div class="text-center mb-4">
     <h1 class="display-5">Marco's Dough Batch Calculator</h1>
     <p class="lead">Enter the number of trays needed for each type.</p>
-    <button class="btn btn-secondary" onclick="toggleTheme()">Toggle Dark Mode</button>
   </div>
 
-  <form method="post" class="card p-4 shadow-sm">
+  <form method="post" class="card p-4 shadow-sm bg-secondary">
     <div class="row g-3">
       {% for dough in dough_types %}
         <div class="col-md-6">
           <label class="form-label">{{ dough }} trays:</label>
-          <input type="number" name="{{ dough }}" class="form-control" min="0" value="0">
+          <input type="number" name="{{ dough }}" class="form-control" min="0" value="{{ request.form.get(dough, 0) }}">
         </div>
       {% endfor %}
     </div>
@@ -59,12 +48,12 @@ HTML_TEMPLATE = """
     <div class="mt-5">
       <h2 class="text-center mb-4">Batch Breakdown</h2>
       {% for batch in batches %}
-        <div class="card mb-3 shadow-sm">
+        <div class="card mb-3 shadow-sm bg-dark border-light">
           <div class="card-body">
             <h5 class="card-title">Batch {{ loop.index }}</h5>
             <ul class="list-group list-group-flush">
               {% for name, count in batch.items() if count > 0 %}
-                <li class="list-group-item">{{ name }}: {{ count }} trays</li>
+                <li class="list-group-item bg-dark text-light">{{ name }}: {{ count }} trays</li>
               {% endfor %}
             </ul>
             <div class="mt-2"><strong>Total Weight:</strong> {{ total_weights[loop.index0] }} oz</div>
