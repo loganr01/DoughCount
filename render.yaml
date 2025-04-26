@@ -4,4 +4,4 @@ services:
     env: python
     plan: free
     buildCommand: ""
-    startCommand: python dough_web_app.py
+    startCommand: python TheCountDoughWeb.py
