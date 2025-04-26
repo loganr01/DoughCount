@@ -23,37 +23,50 @@ HTML_TEMPLATE = """
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background: url('https://i.imgur.com/RYd9EY5.jpg') no-repeat center center fixed;
+      background: url('https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif') repeat-y center center fixed;
       background-size: cover;
       color: #FFD700;
       font-family: 'Impact', 'Arial Black', sans-serif;
-      text-shadow: 2px 2px 4px #000000;
+      text-shadow: 2px 2px 5px #000000;
+      animation: scrollBackground 60s linear infinite;
     }
+
+    @keyframes scrollBackground {
+      from { background-position: 0 0; }
+      to { background-position: 0 1000px; }
+    }
+
     .card {
       background-color: rgba(0, 0, 0, 0.8) !important;
       border: 2px solid #FFD700;
     }
+
     .btn-primary {
       background-color: #ff4500;
       border: none;
       font-weight: bold;
       font-size: 1.3rem;
     }
+
     .btn-primary:hover {
       background-color: #ff2200;
     }
+
     h1, h2, h5 {
       font-weight: bold;
       color: #ffcc00;
     }
+
     .list-group-item {
       background-color: transparent !important;
       color: #FFD700;
       border: none;
     }
+
     label {
       font-size: 1.1rem;
     }
+
     .lead {
       font-size: 1.3rem;
       font-style: italic;
@@ -65,7 +78,7 @@ HTML_TEMPLATE = """
 <div class="container mt-5">
   <div class="text-center mb-4">
     <h1 class="display-3">🔥 MOMS Badass Batch Calc 🔥</h1>
-    <p class="lead">No Weak Batches Allowed.</p>
+    <p class="lead">Built for only the strongest batches.</p>
   </div>
 
   <form method="post" class="card p-4 shadow-lg">
