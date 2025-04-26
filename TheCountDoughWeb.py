@@ -27,7 +27,7 @@ HTML_TEMPLATE = """
 <div class="container mt-5">
   <div class="text-center mb-4">
     <h1 class="display-5">Marco's Dough Batch Calculator</h1>
-    <p class="lead">This calculates batches of dough when given dough projections.</p>
+    <p class="lead">This page calculates batches of dough when given dough projections</p>
   </div>
 
   <form method="post" class="card p-4 shadow-sm bg-secondary">
