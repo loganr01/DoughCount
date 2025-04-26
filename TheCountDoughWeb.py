@@ -23,13 +23,14 @@ HTML_TEMPLATE = """
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background: url('https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif') repeat-y center center fixed;
-      background-size: cover;
-      color: #FFD700;
-      font-family: 'Impact', 'Arial Black', sans-serif;
-      text-shadow: 2px 2px 5px #000000;
-      animation: scrollBackground 60s linear infinite;
-    }
+  background: url('https://media.tenor.com/ZH9lAkG3XI0AAAAd/fire-burning.gif') repeat-y center center fixed;
+  background-size: cover;
+  color: #FFD700;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  text-shadow: 2px 2px 5px #000000;
+  animation: scrollBackground 60s linear infinite;
+}
+
 
     @keyframes scrollBackground {
       from { background-position: 0 0; }
