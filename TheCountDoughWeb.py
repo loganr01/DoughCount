@@ -19,18 +19,56 @@ HTML_TEMPLATE = """
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Marco's Dough Batch Calculator</title>
+  <title>MOMS Badass Batch Calc</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('https://i.imgur.com/RYd9EY5.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #FFD700;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      text-shadow: 2px 2px 4px #000000;
+    }
+    .card {
+      background-color: rgba(0, 0, 0, 0.8) !important;
+      border: 2px solid #FFD700;
+    }
+    .btn-primary {
+      background-color: #ff4500;
+      border: none;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .btn-primary:hover {
+      background-color: #ff2200;
+    }
+    h1, h2, h5 {
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    .list-group-item {
+      background-color: transparent !important;
+      color: #FFD700;
+      border: none;
+    }
+    label {
+      font-size: 1.1rem;
+    }
+    .lead {
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+  </style>
 </head>
-<body class="bg-dark text-light">
+<body>
 
 <div class="container mt-5">
   <div class="text-center mb-4">
-    <h1 class="display-5">Marco's Dough Batch Calculator</h1>
-    <p class="lead">This page calculates batches of dough when given dough projections</p>
+    <h1 class="display-3">🔥 MOMS Badass Batch Calc 🔥</h1>
+    <p class="lead">No Weak Batches Allowed.</p>
   </div>
 
-  <form method="post" class="card p-4 shadow-sm bg-secondary">
+  <form method="post" class="card p-4 shadow-lg">
     <div class="row g-3">
       {% for dough in dough_types %}
         <div class="col-md-6">
@@ -40,20 +78,20 @@ HTML_TEMPLATE = """
       {% endfor %}
     </div>
     <div class="text-center mt-4">
-      <button type="submit" class="btn btn-primary btn-lg">Calculate Batches</button>
+      <button type="submit" class="btn btn-primary btn-lg">🔥 Calculate Batches 🔥</button>
     </div>
   </form>
 
   {% if batches %}
     <div class="mt-5">
-      <h2 class="text-center mb-4">Batch Breakdown</h2>
+      <h2 class="text-center mb-4">🔥 Batch Breakdown 🔥</h2>
       {% for batch in batches %}
-        <div class="card mb-3 shadow-sm bg-dark border-light">
+        <div class="card mb-3 shadow-lg">
           <div class="card-body">
             <h5 class="card-title">Batch {{ loop.index }}</h5>
             <ul class="list-group list-group-flush">
               {% for name, count in batch.items() if count > 0 %}
-                <li class="list-group-item bg-dark text-light">{{ name }}: {{ count }} trays</li>
+                <li class="list-group-item">{{ name }}: {{ count }} trays</li>
               {% endfor %}
             </ul>
             <div class="mt-2"><strong>Total Weight:</strong> {{ total_weights[loop.index0] }} oz</div>
@@ -67,6 +105,7 @@ HTML_TEMPLATE = """
 </body>
 </html>
 """
+
 
 def pack_batches(projections):
     remaining = projections.copy()
