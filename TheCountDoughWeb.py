@@ -79,7 +79,7 @@ HTML_TEMPLATE = """
 <div class="container mt-5">
   <div class="text-center mb-4">
     <h1 class="display-3">🔥 MOMS Badass Batch Calc 🔥</h1>
-    <p class="lead">Built for only the strongest batches.</p>
+    <p class="lead">No WEAK batches ALLOWED!</p>
   </div>
 
   <form method="post" class="card p-4 shadow-lg">
