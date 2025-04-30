@@ -17,12 +17,12 @@ BATCH_SIZE = 1216
 
 HTML_TEMPLATE = """
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang=\"en\" data-bs-theme=\"dark\">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset=\"utf-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
   <title>Batch Calc</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
   <style>
     body {
       background-color: #1c1c1e;
@@ -69,63 +69,63 @@ HTML_TEMPLATE = """
 </head>
 <body>
 
-<div class="container mt-5 mb-5">
-  <div class="text-center mb-4">
-    <h1 class="display-5">MOMS Batch Calculator</h1>
-    <p class="lead">Batch out dough like a pro. No waste. No guesswork.</p>
+<div class=\"container mt-5 mb-5\">
+  <div class=\"text-center mb-4\">
+    <h1 class=\"display-5\">MOMS Batch Calculator</h1>
+    <p class=\"lead\">Batch out dough like a pro. No waste. No guesswork.</p>
   </div>
 
-  <form method="post" class="card p-4 shadow-sm">
-    <div class="row g-3">
+  <form method=\"post\" class=\"card p-4 shadow-sm\">
+    <div class=\"row g-3\">
       {% for dough in dough_types %}
-        <div class="col-md-6">
-          <label class="form-label">{{ dough }} trays:</label>
-          <input type="number" name="{{ dough }}" class="form-control" min="0" value="{{ request.form.get(dough, 0) }}">
+        <div class=\"col-md-6\">
+          <label class=\"form-label\">{{ dough }} trays:</label>
+          <input type=\"number\" name=\"{{ dough }}\" class=\"form-control\" min=\"0\" value=\"{{ request.form.get(dough, 0) }}\">
         </div>
       {% endfor %}
     </div>
-    <div class="text-center mt-4">
-      <button type="submit" class="btn btn-primary btn-lg px-5">Calculate Batches</button>
-      <a href="/export" class="btn btn-outline-light btn-lg px-5 ms-3">Export CSV</a>
-      <button onclick="window.print()" class="btn btn-secondary btn-lg px-5 ms-3">Print</button>
+    <div class=\"text-center mt-4\">
+      <button type=\"submit\" class=\"btn btn-primary btn-lg px-5\">Calculate Batches</button>
+      <a href=\"/export\" class=\"btn btn-outline-light btn-lg px-5 ms-3\">Export CSV</a>
+      <button onclick=\"window.print()\" class=\"btn btn-secondary btn-lg px-5 ms-3\">Print</button>
     </div>
   </form>
 
   {% if batches %}
-    <div class="mt-5">
-      <h2 class="text-center mb-4">Batch Breakdown</h2>
+    <div class=\"mt-5\">
+      <h2 class=\"text-center mb-4\">Batch Breakdown</h2>
       {% for batch in batches %}
-        <div class="card mb-3 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">Batch {{ loop.index }}</h5>
-            <ul class="list-group list-group-flush">
+        <div class=\"card mb-3 shadow-sm\">
+          <div class=\"card-body\">
+            <h5 class=\"card-title\">Batch {{ loop.index }}</h5>
+            <ul class=\"list-group list-group-flush\">
               {% for name, count in batch.items() if count > 0 %}
-                <li class="list-group-item">{{ name }}: {{ count }} trays {{ icons[name] }}</li>
+                <li class=\"list-group-item\">{{ name }}: {{ count }} trays</li>
               {% endfor %}
             </ul>
-            <div class="mt-3">
+            <div class=\"mt-3\">
               <strong>Total Weight:</strong> {{ total_weights[loop.index0] }} oz
               <br>
               <strong>Efficiency:</strong> {{ efficiency[loop.index0] }}%
-              <div class="progress mt-2">
-                <div class="progress-bar bg-success" role="progressbar" style="width: {{ efficiency[loop.index0] }}%">
+              <div class=\"progress mt-2\">
+                <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: {{ efficiency[loop.index0] }}%\">
                   {{ efficiency[loop.index0] }}%
                 </div>
               </div>
               {% if overspill[loop.index0] > 0 %}
-                <div class="mt-2 text-warning">Unused dough: {{ overspill[loop.index0] }} oz</div>
+                <div class=\"mt-2 text-warning\">Unused dough: {{ overspill[loop.index0] }} oz</div>
               {% endif %}
             </div>
           </div>
         </div>
       {% endfor %}
 
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Total Tray Summary</h5>
-          <ul class="list-group list-group-flush">
+      <div class=\"card mt-4\">
+        <div class=\"card-body\">
+          <h5 class=\"card-title\">Total Tray Summary</h5>
+          <ul class=\"list-group list-group-flush\">
             {% for name, total in tray_totals.items() %}
-              <li class="list-group-item">{{ name }}: {{ total }} trays</li>
+              <li class=\"list-group-item\">{{ name }}: {{ total }} trays</li>
             {% endfor %}
           </ul>
         </div>
@@ -137,14 +137,6 @@ HTML_TEMPLATE = """
 </body>
 </html>
 """
-
-ICONS = {
-    "Pizzoli": "🍕",
-    "Small": "🍕",
-    "Medium": "🍕",
-    "Large": "🍕",
-    "XLarge": "🍕"
-}
 
 last_batches = []
 last_weights = []
@@ -203,8 +195,7 @@ def index():
         total_weights=total_weights,
         efficiency=efficiency,
         overspill=overspill,
-        tray_totals=tray_totals,
-        icons=ICONS
+        tray_totals=tray_totals
     )
 
 @app.route('/export')
