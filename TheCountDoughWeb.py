@@ -60,8 +60,8 @@ HTML_TEMPLATE = """
 
 <div class="container mt-5 mb-5">
   <div class="text-center mb-4">
-    <h1 class="display-5">MOMS Badass Batch Calc</h1>
-    <p class="lead">Accurately batch dough like a pro. No waste. No guesswork.</p>
+    <h1 class="display-5">MOMS Batch Calc</h1>
+    <p class="lead">Accurately batch out dough like a pro. Know exactly what you need would look like in batch numbers and the batch contents.</p>
   </div>
 
   <form method="post" class="card p-4 shadow-sm">
