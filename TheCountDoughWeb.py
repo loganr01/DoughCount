@@ -71,7 +71,7 @@ HTML_TEMPLATE = """
 
 <div class="container mt-5 mb-5">
   <div class="text-center mb-4">
-    <h1 class="display-5">MOMS Badass Batch Calc 🔥</h1>
+    <h1 class="display-5">MOMS Batch Calculator</h1>
     <p class="lead">Batch out dough like a pro. No waste. No guesswork.</p>
   </div>
 
@@ -140,10 +140,10 @@ HTML_TEMPLATE = """
 
 ICONS = {
     "Pizzoli": "🍕",
-    "Small": "📦",
-    "Medium": "📦",
-    "Large": "📦",
-    "XLarge": "📦"
+    "Small": "🍕",
+    "Medium": "🍕",
+    "Large": "🍕",
+    "XLarge": "🍕"
 }
 
 last_batches = []
