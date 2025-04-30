@@ -23,66 +23,48 @@ HTML_TEMPLATE = """
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-  background: url('https://media.tenor.com/ZH9lAkG3XI0AAAAd/fire-burning.gif') repeat-y center center fixed;
-  background-size: cover;
-  color: #FFD700;
-  font-family: 'Impact', 'Arial Black', sans-serif;
-  text-shadow: 2px 2px 5px #000000;
-  animation: scrollBackground 60s linear infinite;
-}
-
-
-    @keyframes scrollBackground {
-      from { background-position: 0 0; }
-      to { background-position: 0 1000px; }
+      background-color: #1c1c1e;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
     .card {
-      background-color: rgba(0, 0, 0, 0.8) !important;
-      border: 2px solid #FFD700;
+      background-color: #2c2c2e;
+      border: 1px solid #444;
     }
-
     .btn-primary {
-      background-color: #ff4500;
+      background-color: #007bff;
       border: none;
-      font-weight: bold;
-      font-size: 1.3rem;
     }
-
     .btn-primary:hover {
-      background-color: #ff2200;
+      background-color: #0056b3;
     }
-
     h1, h2, h5 {
-      font-weight: bold;
-      color: #ffcc00;
+      font-weight: 600;
+      color: #ffffff;
     }
-
-    .list-group-item {
-      background-color: transparent !important;
-      color: #FFD700;
-      border: none;
-    }
-
-    label {
-      font-size: 1.1rem;
-    }
-
     .lead {
-      font-size: 1.3rem;
-      font-style: italic;
+      color: #aaaaaa;
+    }
+    .form-label {
+      font-weight: 500;
+    }
+    .list-group-item {
+      background-color: transparent;
+      color: #e2e2e2;
+      border: none;
+      padding-left: 0;
     }
   </style>
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="text-center mb-4">
-    <h1 class="display-3">Batch Calc</h1>
-    <p class="lead">This page calculates the amount of batches as well as what to make the batches. Something I think would be relatively easy to implimate in Marcos POS.</p>
+    <h1 class="display-5">MOMS Badass Batch Calc</h1>
+    <p class="lead">Accurately batch dough like a pro. No waste. No guesswork.</p>
   </div>
 
-  <form method="post" class="card p-4 shadow-lg">
+  <form method="post" class="card p-4 shadow-sm">
     <div class="row g-3">
       {% for dough in dough_types %}
         <div class="col-md-6">
@@ -92,7 +74,7 @@ HTML_TEMPLATE = """
       {% endfor %}
     </div>
     <div class="text-center mt-4">
-      <button type="submit" class="btn btn-primary btn-lg"> Calculate Batches </button>
+      <button type="submit" class="btn btn-primary btn-lg px-5">Calculate Batches</button>
     </div>
   </form>
 
@@ -100,7 +82,7 @@ HTML_TEMPLATE = """
     <div class="mt-5">
       <h2 class="text-center mb-4">Batch Breakdown</h2>
       {% for batch in batches %}
-        <div class="card mb-3 shadow-lg">
+        <div class="card mb-3 shadow-sm">
           <div class="card-body">
             <h5 class="card-title">Batch {{ loop.index }}</h5>
             <ul class="list-group list-group-flush">
@@ -108,7 +90,7 @@ HTML_TEMPLATE = """
                 <li class="list-group-item">{{ name }}: {{ count }} trays</li>
               {% endfor %}
             </ul>
-            <div class="mt-2"><strong>Total Weight:</strong> {{ total_weights[loop.index0] }} oz</div>
+            <div class="mt-3"><strong>Total Weight:</strong> {{ total_weights[loop.index0] }} oz</div>
           </div>
         </div>
       {% endfor %}
@@ -119,6 +101,7 @@ HTML_TEMPLATE = """
 </body>
 </html>
 """
+
 
 
 def pack_batches(projections):
