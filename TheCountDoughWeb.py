@@ -78,8 +78,8 @@ HTML_TEMPLATE = """
 
 <div class="container mt-5">
   <div class="text-center mb-4">
-    <h1 class="display-3">🔥 MOMS Badass Batch Calc 🔥</h1>
-    <p class="lead">No WEAK batches ALLOWED!</p>
+    <h1 class="display-3">Batch Calc</h1>
+    <p class="lead">This page calculates the amount of batches as well as what to make the batches. Something I think would be relatively easy to implimate in Marcos POS.</p>
   </div>
 
   <form method="post" class="card p-4 shadow-lg">
@@ -92,13 +92,13 @@ HTML_TEMPLATE = """
       {% endfor %}
     </div>
     <div class="text-center mt-4">
-      <button type="submit" class="btn btn-primary btn-lg">🔥 Calculate Batches 🔥</button>
+      <button type="submit" class="btn btn-primary btn-lg"> Calculate Batches </button>
     </div>
   </form>
 
   {% if batches %}
     <div class="mt-5">
-      <h2 class="text-center mb-4">🔥 Batch Breakdown 🔥</h2>
+      <h2 class="text-center mb-4">Batch Breakdown</h2>
       {% for batch in batches %}
         <div class="card mb-3 shadow-lg">
           <div class="card-body">
