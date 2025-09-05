@@ -72,7 +72,7 @@ HTML_TEMPLATE = """
 <div class=\"container mt-5 mb-5\">
   <div class=\"text-center mb-4\">
     <h1 class=\"display-5\">MOMS Batch Calculator</h1>
-    <p class=\"lead\">Batch out dough like a pro. No waste. No guesswork.</p>
+    <p class="lead">Enter your projected tray counts and we’ll pack them into 1216-oz dough batches by size—showing per-batch weight, efficiency, leftovers, and letting you export a CSV.</p>
   </div>
 
   <form method=\"post\" class=\"card p-4 shadow-sm\">
@@ -215,3 +215,4 @@ def export_csv():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
