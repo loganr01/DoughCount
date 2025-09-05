@@ -2,6 +2,12 @@
 
 A lightweight Flask app that turns Marco’s Pizza dough tray projections into **precise 1216‑oz batch plans**—so your prep list is accurate, easy to follow, and wastes as little dough as possible.
 
+### Live demo
+
+[doughcount.onrender.com](https://doughcount.onrender.com)
+
+> Hosted on Render’s free tier. The instance may sleep when idle and briefly cold‑start on the first request after inactivity.
+
 ---
 
 ## What this app does
